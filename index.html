@@ -1,0 +1,1735 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>17-Year-Old Shot and Killed in Coney Island Housing | NYC Daily Report</title>
+
+  <style>
+    /* ── Reset & Base ─────────────────────────────────────────── */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --red:        #c8102e;
+      --red-dark:   #a00d23;
+      --black:      #111111;
+      --dark-gray:  #333333;
+      --mid-gray:   #666666;
+      --light-gray: #f4f4f4;
+      --border:     #ddd;
+      --white:      #ffffff;
+      --font-serif: 'Georgia', 'Times New Roman', serif;
+      --font-sans:  'Arial', 'Helvetica Neue', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+      font-size: 16px;
+    }
+
+    a { color: var(--red); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    img {
+      display: block;
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* ── Top Utility Bar ──────────────────────────────────────── */
+    .top-bar {
+      background: var(--black);
+      color: #bbb;
+      font-size: 0.72rem;
+      letter-spacing: 0.04em;
+      padding: 6px 0;
+    }
+    .top-bar .inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+    .top-bar .date-display { text-transform: uppercase; }
+    .top-bar nav a {
+      color: #bbb;
+      margin-left: 16px;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+    }
+    .top-bar nav a:hover { color: var(--white); text-decoration: none; }
+
+    /* ── Header ───────────────────────────────────────────────── */
+    .site-header {
+      background: var(--white);
+      border-bottom: 3px solid var(--black);
+      padding: 16px 0 14px;
+    }
+    .site-header .inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      text-decoration: none;
+    }
+    /* Image logo — shown when assets/logo.png exists */
+    .logo-img {
+      height: 52px;
+      width: auto;
+      object-fit: contain;
+    }
+    /* Fallback text logo shown if image fails to load */
+    .logo-text {
+      display: none;
+      font-family: var(--font-serif);
+      font-size: 2rem;
+      font-weight: 700;
+      color: var(--black);
+      letter-spacing: -0.5px;
+      line-height: 1;
+    }
+    .logo-text span { color: var(--red); }
+
+    .header-tagline {
+      font-family: var(--font-serif);
+      font-size: 0.78rem;
+      font-style: italic;
+      color: var(--mid-gray);
+      border-left: 2px solid var(--border);
+      padding-left: 14px;
+    }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+    .header-search {
+      display: flex;
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      overflow: hidden;
+    }
+    .header-search input {
+      border: none;
+      padding: 7px 10px;
+      font-size: 0.82rem;
+      outline: none;
+      width: 170px;
+      background: var(--light-gray);
+    }
+    .header-search button {
+      background: var(--red);
+      border: none;
+      color: var(--white);
+      padding: 0 12px;
+      cursor: pointer;
+      font-size: 0.9rem;
+    }
+    .header-search button:hover { background: var(--red-dark); }
+
+    /* ── Primary Nav ──────────────────────────────────────────── */
+    .primary-nav {
+      background: var(--black);
+    }
+    .primary-nav .inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .primary-nav .inner::-webkit-scrollbar { display: none; }
+    .primary-nav a {
+      color: #ddd;
+      font-size: 0.82rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      padding: 12px 16px;
+      white-space: nowrap;
+      display: block;
+      border-bottom: 3px solid transparent;
+      transition: color 0.15s, border-color 0.15s;
+    }
+    .primary-nav a:hover,
+    .primary-nav a.active {
+      color: var(--white);
+      border-bottom-color: var(--red);
+      text-decoration: none;
+    }
+    .primary-nav a.active { color: var(--white); }
+
+    /* ── Breaking News Ticker ─────────────────────────────────── */
+    .breaking-ticker {
+      background: var(--red);
+      color: var(--white);
+      padding: 9px 0;
+      overflow: hidden;
+      position: relative;
+    }
+    .breaking-ticker .inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .ticker-label {
+      background: var(--white);
+      color: var(--red);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 9px;
+      border-radius: 2px;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .ticker-track {
+      overflow: hidden;
+      flex: 1;
+      position: relative;
+      height: 1.3em;
+    }
+    .ticker-items {
+      display: flex;
+      gap: 0;
+      animation: ticker-scroll 30s linear infinite;
+      width: max-content;
+    }
+    .ticker-items span {
+      font-size: 0.82rem;
+      font-weight: 600;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      padding-right: 60px;
+    }
+    .ticker-items span::before {
+      content: '●';
+      margin-right: 10px;
+      opacity: 0.7;
+    }
+    @keyframes ticker-scroll {
+      0%   { transform: translateX(0); }
+      100% { transform: translateX(-50%); }
+    }
+    .ticker-items:hover { animation-play-state: paused; }
+
+    /* ── Page Layout ──────────────────────────────────────────── */
+    .page-wrap {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 30px 20px 60px;
+      display: grid;
+      grid-template-columns: 1fr 300px;
+      gap: 40px;
+      align-items: start;
+    }
+
+    /* ── Article ──────────────────────────────────────────────── */
+    .article-main { min-width: 0; }
+
+    /* Category badge */
+    .article-category {
+      display: inline-block;
+      background: var(--red);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: 2px;
+      margin-bottom: 14px;
+    }
+
+    /* ── HEADLINE ── */
+    .article-headline {
+      font-family: var(--font-serif);
+      font-size: 2.4rem;
+      font-weight: 700;
+      line-height: 1.2;
+      color: var(--black);
+      margin-bottom: 14px;
+    }
+
+    /* ── SUBHEADLINE ── */
+    .article-subheadline {
+      font-family: var(--font-serif);
+      font-size: 1.2rem;
+      font-weight: 400;
+      color: var(--dark-gray);
+      line-height: 1.45;
+      margin-bottom: 20px;
+      border-left: 4px solid var(--red);
+      padding-left: 14px;
+    }
+
+    /* ── METADATA ── */
+    .article-meta {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 8px 18px;
+      font-size: 0.8rem;
+      color: var(--mid-gray);
+      padding: 12px 0;
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+      margin-bottom: 24px;
+    }
+    .article-meta .byline { font-weight: 700; color: var(--dark-gray); }
+    .article-meta .location::before,
+    .article-meta .pub-date::before {
+      content: '·';
+      margin-right: 8px;
+      color: var(--border);
+    }
+    .article-meta .updated-badge {
+      background: var(--red);
+      color: var(--white);
+      font-size: 0.65rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      padding: 2px 7px;
+      border-radius: 2px;
+    }
+    .share-row {
+      display: flex;
+      gap: 8px;
+      margin-left: auto;
+    }
+    .share-btn {
+      border: 1px solid var(--border);
+      background: var(--white);
+      color: var(--dark-gray);
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      padding: 5px 12px;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.15s;
+      text-transform: uppercase;
+    }
+    .share-btn:hover { background: var(--light-gray); }
+
+    /* Main image */
+    .article-hero {
+      position: relative;
+      margin-bottom: 8px;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+    .article-hero img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* Placeholder shown when image is missing */
+    .img-placeholder {
+      width: 100%;
+      min-height: 320px;
+      background: linear-gradient(135deg, #e0e0e0 0%, #c8c8c8 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      color: #999;
+      font-size: 0.85rem;
+      text-align: center;
+      gap: 8px;
+      padding: 20px;
+    }
+    .img-placeholder .ph-icon {
+      font-size: 3rem;
+      opacity: 0.4;
+    }
+    .caption {
+      font-size: 0.78rem;
+      color: var(--mid-gray);
+      font-style: italic;
+      margin-bottom: 24px;
+      padding: 6px 2px;
+      border-bottom: 1px solid var(--border);
+    }
+    .caption-name {
+      display: block;
+      font-family: var(--font-sans);
+      font-size: 0.8rem;
+      font-weight: 700;
+      font-style: normal;
+      color: var(--black);
+      margin-bottom: 2px;
+    }
+    .caption-label {
+      display: block;
+      font-size: 0.74rem;
+      font-style: italic;
+      color: var(--mid-gray);
+    }
+
+    /* ── Pull Quote ── */
+    .pull-quote {
+      margin: 32px 0;
+      padding: 22px 28px;
+      border-top: 3px solid var(--red);
+      border-bottom: 3px solid var(--red);
+      text-align: center;
+    }
+    .pull-quote p {
+      font-family: var(--font-serif);
+      font-size: 1.3rem;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--black);
+      margin-bottom: 0 !important;
+    }
+    .pull-quote p::first-letter { float: none; font-size: inherit; line-height: inherit; margin: 0; }
+    .pull-quote cite {
+      display: block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      font-style: normal;
+      color: var(--mid-gray);
+      margin-top: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+    }
+
+    /* ── CCTV / Surveillance Image ── */
+    .cctv-block {
+      margin: 28px 0;
+      border: 2px solid #3a3a3a;
+      border-radius: 2px;
+      overflow: hidden;
+      background: #111;
+      box-shadow: 0 3px 16px rgba(0,0,0,0.3);
+    }
+    .cctv-block img {
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: grayscale(100%) contrast(1.08) brightness(0.95);
+    }
+    .cctv-caption {
+      background: #1a1a1a;
+      color: #bbb;
+      font-family: 'Courier New', 'Lucida Console', monospace;
+      font-size: 0.72rem;
+      padding: 9px 14px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      flex-wrap: wrap;
+      gap: 6px;
+      border-top: 1px solid #333;
+    }
+    .cctv-label {
+      color: #e04444;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      white-space: nowrap;
+    }
+    .cctv-desc {
+      color: #999;
+      font-size: 0.72rem;
+      font-style: italic;
+      font-family: var(--font-sans);
+      flex: 1;
+      text-align: right;
+    }
+
+    /* ── Latest Updates ── */
+    .latest-updates {
+      background: #fff8f8;
+      border: 1px solid #f0cece;
+      border-left: 4px solid var(--red);
+      border-radius: 0 4px 4px 0;
+      padding: 18px 22px;
+      margin: 36px 0;
+    }
+    .latest-updates h4 {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 14px;
+    }
+    .update-item {
+      display: flex;
+      gap: 16px;
+      padding: 10px 0;
+      border-bottom: 1px solid #f0cece;
+    }
+    .update-item:last-child { border-bottom: none; }
+    .update-time {
+      font-size: 0.72rem;
+      font-weight: 800;
+      color: var(--red);
+      white-space: nowrap;
+      min-width: 54px;
+      padding-top: 2px;
+      font-family: var(--font-sans);
+    }
+    .update-text {
+      font-size: 0.88rem;
+      color: var(--dark-gray);
+      line-height: 1.5;
+      font-family: var(--font-serif);
+    }
+
+    /* ── Sidebar Investigation Timeline ── */
+    .timeline-widget { padding: 4px 0; }
+    .tl-item {
+      display: flex;
+      gap: 12px;
+      padding: 9px 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .tl-item:last-child { border-bottom: none; }
+    .tl-time {
+      font-size: 0.68rem;
+      font-weight: 800;
+      color: var(--red);
+      white-space: nowrap;
+      min-width: 52px;
+      padding-top: 2px;
+      font-family: var(--font-sans);
+      letter-spacing: 0.02em;
+    }
+    .tl-event {
+      font-size: 0.82rem;
+      color: var(--dark-gray);
+      line-height: 1.45;
+    }
+    .tl-item.tl-ongoing .tl-time { color: #999; }
+    .tl-item.tl-ongoing .tl-event { font-style: italic; color: #888; }
+
+    /* ── ARTICLE BODY ── */
+    .article-body p {
+      font-family: var(--font-serif);
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--dark-gray);
+      margin-bottom: 20px;
+    }
+    .article-body p:first-child::first-letter {
+      float: left;
+      font-size: 3.8rem;
+      line-height: 0.78;
+      margin: 4px 8px 0 0;
+      font-family: var(--font-serif);
+      font-weight: 700;
+      color: var(--black);
+    }
+    .article-body h2 {
+      font-family: var(--font-serif);
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--black);
+      margin: 36px 0 14px;
+      padding-bottom: 8px;
+      border-bottom: 2px solid var(--black);
+    }
+    .article-body h3 {
+      font-family: var(--font-serif);
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--dark-gray);
+      margin: 28px 0 10px;
+    }
+    .article-body blockquote {
+      border-left: 4px solid var(--red);
+      padding: 12px 20px;
+      margin: 28px 0;
+      background: var(--light-gray);
+      border-radius: 0 3px 3px 0;
+    }
+    .article-body blockquote p {
+      font-size: 1.1rem;
+      font-style: italic;
+      color: var(--black);
+      margin-bottom: 6px;
+    }
+    .article-body blockquote p:last-child { margin-bottom: 0; }
+    .article-body blockquote cite {
+      font-size: 0.82rem;
+      color: var(--mid-gray);
+      font-style: normal;
+      font-weight: 700;
+    }
+
+    /* Secondary image */
+    .article-img-secondary {
+      margin: 28px 0;
+      background: transparent;
+      border: 1px solid var(--border);
+      border-radius: 2px;
+    }
+    .article-img-secondary img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Key facts box */
+    .key-facts {
+      background: var(--light-gray);
+      border-left: 4px solid var(--red);
+      padding: 18px 22px;
+      margin: 28px 0;
+      border-radius: 0 4px 4px 0;
+    }
+    .key-facts h4 {
+      font-family: var(--font-sans);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--red);
+      margin-bottom: 12px;
+    }
+    .key-facts ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+    .key-facts ul li {
+      font-size: 0.88rem;
+      color: var(--dark-gray);
+      padding-left: 16px;
+      position: relative;
+      line-height: 1.5;
+    }
+    .key-facts ul li::before {
+      content: '▸';
+      position: absolute;
+      left: 0;
+      color: var(--red);
+      font-size: 0.8rem;
+    }
+    .key-facts ul li strong { color: var(--black); }
+
+    /* Tags */
+    .article-tags {
+      margin-top: 36px;
+      padding-top: 18px;
+      border-top: 2px solid var(--black);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+    }
+    .article-tags .tags-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--mid-gray);
+    }
+    .tag {
+      background: var(--light-gray);
+      border: 1px solid var(--border);
+      color: var(--dark-gray);
+      font-size: 0.78rem;
+      padding: 4px 10px;
+      border-radius: 2px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .tag:hover { background: #e0e0e0; }
+
+    /* ── Sidebar ──────────────────────────────────────────────── */
+    .sidebar { min-width: 0; }
+
+    .sidebar-section {
+      background: var(--white);
+      border: 1px solid var(--border);
+      border-radius: 3px;
+      margin-bottom: 28px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+    }
+    .sidebar-section-header {
+      background: var(--black);
+      color: var(--white);
+      font-size: 0.72rem;
+      font-weight: 900;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 10px 16px;
+    }
+    .sidebar-section-header.red-bg {
+      background: var(--red);
+    }
+
+    /* Related stories */
+    .related-story {
+      display: flex;
+      gap: 10px;
+      padding: 12px 16px;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.12s;
+      cursor: pointer;
+    }
+    .related-story:last-child { border-bottom: none; }
+    .related-story:hover { background: var(--light-gray); }
+    .related-thumb {
+      width: 64px;
+      height: 52px;
+      object-fit: cover;
+      flex-shrink: 0;
+      border-radius: 2px;
+      background: #ddd;
+    }
+    .related-thumb-placeholder {
+      width: 64px;
+      height: 52px;
+      background: linear-gradient(135deg, #e0e0e0, #c8c8c8);
+      flex-shrink: 0;
+      border-radius: 2px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.2rem;
+      color: #aaa;
+    }
+    .related-story-title {
+      font-family: var(--font-serif);
+      font-size: 0.88rem;
+      font-weight: 700;
+      line-height: 1.35;
+      color: var(--black);
+    }
+    .related-story-date {
+      font-size: 0.72rem;
+      color: var(--mid-gray);
+      margin-top: 4px;
+    }
+
+    /* Crime stats widget */
+    .stat-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 16px;
+      border-bottom: 1px solid var(--border);
+      font-size: 0.83rem;
+    }
+    .stat-row:last-child { border-bottom: none; }
+    .stat-label { color: var(--dark-gray); }
+    .stat-val {
+      font-weight: 800;
+      font-size: 1.05rem;
+      color: var(--black);
+    }
+    .stat-change {
+      font-size: 0.72rem;
+      font-weight: 700;
+    }
+    .stat-change.up { color: var(--red); }
+    .stat-change.dn { color: #1a8a2e; }
+
+    /* Newsletter widget */
+    .newsletter-widget {
+      padding: 18px 16px;
+    }
+    .newsletter-widget p {
+      font-size: 0.85rem;
+      color: var(--dark-gray);
+      margin-bottom: 12px;
+      line-height: 1.5;
+    }
+    .newsletter-widget input {
+      width: 100%;
+      border: 1px solid var(--border);
+      padding: 9px 11px;
+      font-size: 0.85rem;
+      border-radius: 3px;
+      margin-bottom: 8px;
+      outline: none;
+    }
+    .newsletter-widget input:focus { border-color: var(--red); }
+    .newsletter-widget button {
+      width: 100%;
+      background: var(--red);
+      color: var(--white);
+      border: none;
+      padding: 10px;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      border-radius: 3px;
+      cursor: pointer;
+      transition: background 0.15s;
+    }
+    .newsletter-widget button:hover { background: var(--red-dark); }
+
+    /* ── Footer ───────────────────────────────────────────────── */
+    footer {
+      background: var(--black);
+      color: #aaa;
+      padding: 40px 0 20px;
+      margin-top: 0;
+    }
+    .footer-inner {
+      max-width: 1140px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 32px;
+      margin-bottom: 36px;
+    }
+    .footer-brand .footer-logo-text {
+      font-family: var(--font-serif);
+      font-size: 1.5rem;
+      font-weight: 700;
+      color: var(--white);
+      margin-bottom: 10px;
+    }
+    .footer-brand .footer-logo-text span { color: var(--red); }
+    .footer-brand p {
+      font-size: 0.82rem;
+      line-height: 1.6;
+      color: #888;
+    }
+    .footer-col h5 {
+      color: var(--white);
+      font-size: 0.78rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: 14px;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col ul li { margin-bottom: 7px; }
+    .footer-col ul li a {
+      color: #999;
+      font-size: 0.82rem;
+      transition: color 0.15s;
+    }
+    .footer-col ul li a:hover { color: var(--white); text-decoration: none; }
+    .footer-bottom {
+      border-top: 1px solid #333;
+      padding-top: 18px;
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 8px;
+      font-size: 0.75rem;
+      color: #666;
+    }
+
+    /* ── Responsive ───────────────────────────────────────────── */
+    @media (max-width: 900px) {
+      .page-wrap {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .sidebar { order: 2; }
+      .article-headline { font-size: 1.9rem; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+
+    @media (max-width: 600px) {
+      .article-headline { font-size: 1.55rem; }
+      .article-subheadline { font-size: 1rem; }
+      .article-body p { font-size: 0.98rem; }
+      .header-search { display: none; }
+      .header-tagline { display: none; }
+      .share-row { display: none; }
+      .footer-grid { grid-template-columns: 1fr; }
+    }
+
+    /* ── Read-more toggle ─────────────────────────────────────── */
+    .read-more-fade {
+      position: relative;
+      overflow: hidden;
+      max-height: 999em;
+      transition: max-height 0.4s ease;
+    }
+    /* Sticky breaking badge */
+    .sticky-breaking {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      background: var(--red);
+      color: var(--white);
+      text-align: center;
+      font-size: 0.78rem;
+      font-weight: 800;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 6px;
+      z-index: 999;
+      transform: translateY(-100%);
+      transition: transform 0.3s ease;
+    }
+    .sticky-breaking.visible { transform: translateY(0); }
+  </style>
+</head>
+<body>
+
+  <!-- Sticky breaking banner (appears on scroll) -->
+  <div class="sticky-breaking" id="stickyBanner">
+    &#9679; BREAKING NEWS &nbsp;|&nbsp; 17-Year-Old Shot and Killed in Coney Island Housing, Brooklyn
+  </div>
+
+  <!-- ── Top Bar ── -->
+  <div class="top-bar">
+    <div class="inner">
+      <!-- METADATA: Update date here -->
+      <span class="date-display" id="topDate"></span>
+      <nav>
+        <a href="#">Home</a>
+        <a href="#">NYC</a>
+        <a href="#">Crime</a>
+        <a href="#">Politics</a>
+        <a href="#">Weather</a>
+        <a href="#">Contact</a>
+      </nav>
+    </div>
+  </div>
+
+  <!-- ── Header ── -->
+  <header class="site-header">
+    <div class="inner">
+      <a href="#" class="logo-wrap">
+        <!-- IMAGE: Replace assets/logo.png with your news logo -->
+        <img
+          class="logo-img"
+          src="assets/logo.png"
+          alt="NYC Daily Report"
+          onerror="this.style.display='none'; document.querySelector('.logo-text').style.display='block';"
+        />
+        <span class="logo-text">NYC <span>Daily</span> Report</span>
+        <span class="header-tagline">New York's Source for Breaking News</span>
+      </a>
+      <div class="header-right">
+        <div class="header-search">
+          <input type="text" placeholder="Search stories…" aria-label="Search" />
+          <button aria-label="Submit search">&#128269;</button>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- ── Primary Nav ── -->
+  <nav class="primary-nav" aria-label="Primary navigation">
+    <div class="inner">
+      <a href="#">Home</a>
+      <a href="#" class="active">Breaking News</a>
+      <a href="#">Crime &amp; Justice</a>
+      <a href="#">Politics</a>
+      <a href="#">Community</a>
+      <a href="#">Business</a>
+      <a href="#">Education</a>
+      <a href="#">Sports</a>
+      <a href="#">Weather</a>
+    </div>
+  </nav>
+
+  <!-- ── Breaking News Ticker ── -->
+  <div class="breaking-ticker" aria-label="Breaking news ticker">
+    <div class="inner">
+      <span class="ticker-label">&#9679; Breaking</span>
+      <div class="ticker-track" aria-hidden="true">
+        <div class="ticker-items" id="ticker">
+          <!-- Ticker items duplicated for seamless scroll -->
+          <span>Teen fatally shot in Coney Island Housing, Brooklyn — two suspects in custody</span>
+          <span>NYPD increases patrols in South Brooklyn following afternoon shooting</span>
+          <span>Detectives from Brooklyn North Homicide Squad lead investigation</span>
+          <span>Community leaders call for peace following fatal shooting</span>
+          <span>Mayor's office issues statement condemning gun violence</span>
+          <span>Teen fatally shot in Coney Island Housing, Brooklyn — two suspects in custody</span>
+          <span>NYPD increases patrols in South Brooklyn following afternoon shooting</span>
+          <span>Detectives from Brooklyn North Homicide Squad lead investigation</span>
+          <span>Community leaders call for peace following fatal shooting</span>
+          <span>Mayor's office issues statement condemning gun violence</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── Main Content ── -->
+  <main>
+    <div class="page-wrap">
+
+      <!-- ═══════════════════════════════════════════════════════
+           ARTICLE
+           ═══════════════════════════════════════════════════════ -->
+      <article class="article-main">
+
+        <!-- Category badge -->
+        <span class="article-category">&#9679; Breaking News</span>
+
+        <!-- HEADLINE -->
+        <h1 class="article-headline">
+          17-Year-Old Shot and Killed in Coney Island Housing
+        </h1>
+
+        <!-- SUBHEADLINE -->
+        <p class="article-subheadline">
+          Two suspects were taken into custody after a fatal afternoon shooting in Brooklyn.
+        </p>
+
+        <!-- METADATA: Update byline, location, and date as needed -->
+        <div class="article-meta">
+          <span class="byline">By News Reporter</span>
+          <span class="location">Brooklyn, NY</span>
+          <span class="pub-date" id="articleDate"></span>
+          <span class="updated-badge">Updated</span>
+          <div class="share-row">
+            <button class="share-btn" onclick="copyLink()">&#128279; Copy Link</button>
+            <button class="share-btn">&#128231; Email</button>
+          </div>
+        </div>
+
+        <!-- MAIN HERO IMAGE: assets/victim.jpg — Photo 1 of Shamar Simons -->
+        <div class="article-hero">
+          <img
+            src="assets/victim.png"
+            alt="Shamar Simons, 17, fatally shot in Coney Island Housing"
+            onerror="this.parentElement.innerHTML = '<div class=\'img-placeholder\'><span class=\'ph-icon\'>&#128247;</span><span>Photo: Shamar Simons<br><small>Place assets/victim.jpg here</small></span></div>';"
+          />
+        </div>
+        <p class="caption">
+          <strong class="caption-name">Shamar Simons</strong>
+          <span class="caption-label">Photo of Shamar Simons — Simons, 17, was identified as the victim of a fatal shooting that occurred Tuesday afternoon at the Coney Island Houses complex in Brooklyn. (NYC Daily Report)</span>
+        </p>
+
+        <!-- ── ARTICLE BODY ── -->
+        <div class="article-body">
+
+          <!-- ── KEY FACTS BOX ── -->
+          <div class="key-facts">
+            <h4>&#9679; Key Facts at a Glance</h4>
+            <ul>
+              <!-- VICTIM NAME -->
+              <li><strong>Victim:</strong> Shamar Simons, 17 years old, Brooklyn resident</li>
+              <li><strong>Incident time:</strong> Approximately 2:40 p.m., Tuesday, May 27, 2026</li>
+              <li><strong>Location:</strong> Coney Island Houses, Brooklyn, New York</li>
+              <!-- SUSPECTS -->
+              <li><strong>Suspect 1:</strong> Elijah Bennett, a.k.a. "Leeky Ashton" — in custody</li>
+              <li><strong>Suspect 2:</strong> Kareem Brooks, a.k.a. "Nunu Hound" — in custody</li>
+              <li><strong>Weapon:</strong> A firearm was recovered at the scene, investigators allege</li>
+              <li><strong>Alleged motive:</strong> Investigators believe incident tied to gang dispute — active line of inquiry</li>
+              <li><strong>Lead investigation:</strong> Brooklyn North Homicide Squad &amp; NYPD Gang Division</li>
+              <li><strong>Case status:</strong> Active — charges pending; investigation ongoing</li>
+            </ul>
+          </div>
+
+          <!-- ── MAIN REPORT ── -->
+          <!-- ARTICLE BODY: Edit story paragraphs below -->
+          <p>
+            A 17-year-old boy was shot and killed Tuesday afternoon inside the Coney Island Houses
+            complex in Brooklyn, according to the New York City Police Department. The victim,
+            identified by authorities as <strong>Shamar Simons</strong>, was struck by gunfire
+            at approximately 2:40 p.m. and was pronounced dead at a nearby hospital shortly
+            thereafter. Photos of Shamar Simons shown above and further below — provided to
+            NYC Daily Report — depict the 17-year-old Brooklyn resident who was fatally wounded
+            in the incident. The shooting sent shockwaves through the densely populated public
+            housing development and drew an immediate law enforcement response from multiple
+            units across Brooklyn.
+          </p>
+
+          <p>
+            According to the NYPD, officers from the 60th Precinct were dispatched to the
+            Coney Island Houses complex following a series of 911 calls reporting shots fired
+            in the area. Upon arrival, responding officers located Simons in a common outdoor
+            area of the development, suffering from a gunshot wound. Emergency medical personnel
+            from the New York City Fire Department administered first aid at the scene before
+            transporting him via ambulance to a hospital in the vicinity, where he was later
+            pronounced dead. He was 17 years old.
+          </p>
+
+          <!-- ── TIMELINE OF EVENTS ── -->
+          <h2>Timeline of Events</h2>
+
+          <p>
+            Based on information gathered by law enforcement and reviewed by NYC Daily Report,
+            the following sequence of events reflects the preliminary account established by
+            investigators. Officials cautioned that the timeline may be refined as additional
+            evidence is processed and witness accounts are further corroborated.
+          </p>
+
+          <p>
+            At approximately 2:36 p.m., surveillance cameras in the vicinity of the Coney Island
+            Houses complex captured movement consistent with a confrontation taking shape in
+            an outdoor common area of the development, according to sources familiar with the
+            investigation. By 2:40 p.m., multiple 911 calls had been placed from the area
+            reporting shots fired. Officers from the 60th Precinct arrived on the scene at
+            approximately 2:44 p.m. — within four minutes of the first call received.
+          </p>
+
+          <p>
+            EMS personnel transported Simons to a hospital at approximately 2:51 p.m. He was
+            pronounced dead at 3:18 p.m., officials confirmed. Brooklyn North Homicide Squad
+            detectives assumed lead jurisdiction over the investigation by approximately 4:30 p.m.
+            Within hours, investigators had identified two individuals believed to be directly
+            connected to the shooting. Elijah Bennett, known as "Leeky Ashton," was taken into
+            custody at approximately 6:15 p.m. Kareem Brooks, known as "Nunu Hound," was
+            apprehended separately at approximately 7:40 p.m., according to law enforcement sources.
+          </p>
+
+          <!-- ── SURVEILLANCE FOOTAGE RELEASED ── -->
+          <h2>Surveillance Footage Released</h2>
+
+          <p>
+            Investigators have obtained and are actively reviewing surveillance footage recorded
+            in and around the Coney Island Houses complex at the time of the incident.
+            An image derived from that footage, displayed below, depicts the outdoor area near
+            where the shooting is believed to have occurred — captured at approximately the same
+            time authorities allege the confrontation took place. The footage is being processed
+            as a key component of the ongoing investigation.
+          </p>
+
+          <!-- CCTV IMAGE: assets/cctv.png — Surveillance image from the scene at 02:40 -->
+          <div class="cctv-block">
+            <img
+              src="assets/friess.png"
+              alt="Surveillance footage from the area near Coney Island Houses, timestamped 02:40"
+            />
+            <div class="cctv-caption">
+              <span class="cctv-label">&#9679; REC &nbsp;&#124;&nbsp; CAM 03 &nbsp;&#124;&nbsp; 02:40:07 &nbsp;&#124;&nbsp; CTFID CH.04</span>
+              <span class="cctv-desc">Surveillance image obtained by investigators during the ongoing investigation. Authorities have not released additional details regarding the footage.</span>
+            </div>
+          </div>
+
+          <p>
+            Officials declined to describe in specific detail what the footage depicted,
+            citing the active nature of the investigation and the potential impact on forthcoming
+            legal proceedings. The NYPD's Crime Scene Unit processed the surrounding area in the
+            hours following the incident, collecting physical evidence that is being analyzed
+            at the department's forensic laboratory.
+          </p>
+
+          <!-- ── POLICE RESPONSE ── -->
+          <h2>Police Response</h2>
+
+          <p>
+            Two individuals identified as <strong>Elijah Bennett</strong>, known by the street name
+            "Leeky Ashton," and <strong>Kareem Brooks</strong>, known as "Nunu Hound," were
+            apprehended by police in connection with the fatal shooting. Both men were taken into
+            custody within hours of the incident, according to law enforcement sources familiar
+            with the matter. Formal charges were expected to be filed in the coming days, pending
+            a review by the Brooklyn District Attorney's office and the completion of the NYPD's
+            ongoing investigative proceedings.
+          </p>
+
+          <blockquote>
+            <p>
+              "We moved quickly to identify and apprehend the individuals believed to be
+              responsible for this senseless act. A young life has been cut short,
+              and we are committed to pursuing every avenue of justice for his family."
+            </p>
+            <cite>— NYPD spokesperson, statement issued Tuesday evening</cite>
+          </blockquote>
+
+          <p>
+            Detectives from the Brooklyn North Homicide Squad assumed lead jurisdiction
+            over the investigation. The crime scene was secured and canvassed for ballistic
+            evidence. According to investigators, a firearm believed to be connected to
+            the incident was recovered in the vicinity of the crime scene shortly after
+            officers arrived. Police allege the weapon had been recently discharged at the
+            time of recovery, though authorities noted that its precise role in the shooting
+            remains subject to ongoing forensic analysis and has not been formally established.
+          </p>
+
+          <p>
+            A canine unit assisted detectives in tracking a route allegedly used by one of
+            the suspects following the shooting, law enforcement sources said. Nearby
+            surveillance footage from multiple camera positions was obtained and is being
+            reviewed in conjunction with ballistic and forensic evidence collected at the scene.
+            Witnesses present during or shortly after the shooting were identified and interviewed;
+            detectives requested that any additional individuals with relevant information
+            come forward voluntarily.
+          </p>
+
+          <!-- ── WITNESS STATEMENTS ── -->
+          <h2>Witness Statements</h2>
+
+          <p>
+            Several residents of the Coney Island Houses who were present in the vicinity
+            at the time of the shooting spoke with investigators and, in some cases, with
+            members of the press on Tuesday. The accounts, while varying in specific detail,
+            collectively described a chaotic and rapidly unfolding situation that left
+            bystanders frightened and shaken.
+          </p>
+
+          <p>
+            One individual, who declined to be identified by name out of safety concerns,
+            told NYC Daily Report they heard multiple gunshots in quick succession before
+            seeing people scatter from the outdoor courtyard area. "It happened fast,"
+            the person said. "By the time anyone knew what was going on, it was already over."
+            Another resident described observing emergency services arrive and a young man
+            being loaded into an ambulance as neighbors watched from a distance.
+          </p>
+
+          <!-- PULL QUOTE -->
+          <div class="pull-quote">
+            <p>"It happened fast. By the time anyone knew what was going on, it was already over."</p>
+            <cite>— Witness, Coney Island Houses resident (identity withheld for safety)</cite>
+          </div>
+
+          <p>
+            Detectives are continuing to canvass the area and have urged anyone with additional
+            information — including video recorded on personal devices in the vicinity at the
+            time of the incident — to contact investigators. The NYPD noted that community
+            cooperation is critical to constructing a comprehensive and legally sound account
+            of the events leading up to and immediately following the shooting.
+          </p>
+
+          <!-- ── INVESTIGATION ONGOING ── -->
+          <h2>Investigation Ongoing</h2>
+
+          <p>
+            Detectives believe the fatal shooting was connected to an escalating gang-related
+            dispute between rival factions operating in the area. Specifically, law enforcement
+            sources indicated that investigators are examining whether the conflict involves
+            members affiliated with the <strong>Gangster Disciples</strong> and a local street
+            crew identified as the <strong>59 Primetime Brims</strong>, active in and around
+            the Coney Island neighborhood — an area referred to by local residents and community
+            workers as "Koneysides." Officials cautioned that all such characterizations remain
+            preliminary and subject to revision as the investigation develops further.
+          </p>
+
+          <p>
+            Authorities are also examining whether Simons himself may have intended to confront
+            or target rival individuals prior to the shooting, according to sources with direct
+            knowledge of the investigation. Police allege that the circumstances immediately
+            preceding the incident suggest the encounter may not have been entirely unprovoked,
+            though investigators stressed that this line of inquiry does not alter the legal
+            framework under which the two suspects are currently being held. All allegations
+            remain unproven in a court of law, and the investigation into the full sequence
+            of events remains active.
+          </p>
+
+          <p>
+            The NYPD's Gang Division has been formally notified and is providing support to
+            Brooklyn North Homicide detectives as they work to establish the full scope of
+            the incident and any broader criminal network implications. Authorities declined
+            to comment on specific intelligence gathered through ongoing gang-related
+            investigations, citing the active nature of the case and potential legal sensitivities
+            connected to the forthcoming prosecution.
+          </p>
+
+          <!-- ── NEIGHBORHOOD REACTION ── -->
+          <h2>Neighborhood Reaction</h2>
+
+          <!-- SECOND VICTIM PHOTO: assets/victim2.png — Photo 2 of Shamar Simons -->
+          <div class="article-img-secondary">
+            <img
+              src="assets/victim2.png"
+              alt="Shamar Simons, 17, victim of Coney Island Housing shooting"
+              onerror="this.parentElement.innerHTML = '<div class=\'img-placeholder\' style=\'min-height:260px\'><span class=\'ph-icon\'>&#128247;</span><span>Photo of Shamar Simons<br><small>Place assets/victim2.png here</small></span></div>';"
+            />
+          </div>
+          <p class="caption">
+            <strong class="caption-name">Shamar Simons</strong>
+            <span class="caption-label">Photo of Shamar Simons — A second photo of Simons, provided to NYC Daily Report, shows the 17-year-old Brooklyn resident prior to the incident. (NYC Daily Report)</span>
+          </p>
+
+          <p>
+            The shooting drew expressions of deep grief and frustration from residents of the
+            Coney Island Houses and the surrounding blocks. Neighbors described seeing police tape
+            stretched across sidewalks and a heavy patrol presence throughout the late afternoon
+            and into the evening hours. Several dozen individuals gathered near the police
+            perimeter following news of Simons' death, many visibly shaken, some embracing
+            one another in front of the barriers as detectives continued their work nearby.
+          </p>
+
+          <p>
+            Local community advocates expressed deep concern over the continuing cycle of
+            violence affecting the neighborhood's young people. "Every time something like
+            this happens, it is a reminder that we need more resources, more intervention,
+            and more support for the families living here," said one community organizer
+            who requested anonymity. "This community is tired of grieving its young people."
+          </p>
+
+          <p>
+            Elected officials representing the district were briefed on the shooting Tuesday
+            evening and issued statements calling for accountability and urging community
+            members to cooperate with investigators. The Brooklyn District Attorney's office
+            confirmed it is working in close coordination with the NYPD on the case and
+            indicated it would have more to say once formal charges have been filed.
+          </p>
+
+          <!-- ── NEIGHBORHOOD SAFETY CONCERNS ── -->
+          <h2>Neighborhood Safety Concerns</h2>
+
+          <p>
+            Tuesday's fatal shooting is not the first violent incident to strike the Coney Island
+            Houses complex in recent months. Residents and local advocates have long raised
+            concerns about elevated tension in the area, attributing much of it to longstanding
+            rivalries between street factions that, according to law enforcement, have resulted
+            in a series of confrontations over the past year. Community members have repeatedly
+            called on city officials to increase the presence of social workers, mental health
+            professionals, and violence-interrupter programs in and around the development.
+          </p>
+
+          <p>
+            In response to Tuesday's shooting, the NYPD announced it would bolster patrols in
+            the 60th Precinct, particularly around the Coney Island Houses complex.
+            "We are increasing our presence in the area and are working alongside community
+            partners to address the underlying tensions that contribute to these situations,"
+            an NYPD spokesperson told NYC Daily Report Tuesday evening.
+          </p>
+
+          <!-- ── BACKGROUND INFORMATION ── -->
+          <h2>Background Information</h2>
+
+          <p>
+            The Coney Island Houses — a New York City Housing Authority development situated in
+            southern Brooklyn — is home to several thousand residents and comprises a cluster of
+            high-rise residential buildings and ground-level common areas. The development has
+            historically been subject to elevated levels of street violence, according to NYPD
+            precinct data, though city officials and community organizations have made sustained
+            efforts to reduce crime through outreach and investment in youth programming.
+          </p>
+
+          <p>
+            Law enforcement sources describe the Gangster Disciples and the 59 Primetime Brims
+            as two factions that have maintained a contentious presence in parts of the Coney Island
+            corridor for an extended period. Detectives believe the dispute underlying Tuesday's
+            shooting predates the incident by several months. Authorities declined to specify the
+            nature of the original conflict, citing the active investigation and the need to
+            preserve the integrity of any future prosecution.
+          </p>
+
+          <!-- ── LATEST UPDATES ── -->
+          <div class="latest-updates">
+            <h4>&#9679; Latest Updates</h4>
+            <div class="update-item">
+              <span class="update-time">7:55 PM</span>
+              <span class="update-text">Brooklyn DA's office confirms coordination with NYPD; arraignment of both suspects expected within 72 hours.</span>
+            </div>
+            <div class="update-item">
+              <span class="update-time">7:40 PM</span>
+              <span class="update-text">Second suspect Kareem Brooks, a.k.a. "Nunu Hound," apprehended by detectives in Brooklyn and taken into custody.</span>
+            </div>
+            <div class="update-item">
+              <span class="update-time">6:15 PM</span>
+              <span class="update-text">Elijah Bennett, a.k.a. "Leeky Ashton," taken into custody in connection with the fatal shooting.</span>
+            </div>
+            <div class="update-item">
+              <span class="update-time">5:00 PM</span>
+              <span class="update-text">NYPD Gang Division formally notified; Brooklyn North Homicide Squad assumes lead on active investigation.</span>
+            </div>
+            <div class="update-item">
+              <span class="update-time">3:18 PM</span>
+              <span class="update-text">Shamar Simons, 17, pronounced dead at hospital. Medical Examiner's office notified to conduct examination.</span>
+            </div>
+            <div class="update-item">
+              <span class="update-time">2:40 PM</span>
+              <span class="update-text">Multiple 911 calls received reporting shots fired at the Coney Island Houses complex, Brooklyn.</span>
+            </div>
+          </div>
+
+          <!-- ── WHAT COMES NEXT ── -->
+          <h2>What Comes Next</h2>
+
+          <p>
+            The Medical Examiner's office is expected to formally determine the cause and
+            manner of death in the coming days. In the interim, detectives are continuing to
+            process physical evidence, review surveillance footage from multiple camera sources,
+            and follow up on leads developed through witness interviews conducted at and near
+            the scene. The firearm recovered by officers is expected to undergo ballistic testing,
+            the results of which could prove significant in forthcoming legal proceedings against
+            both suspects.
+          </p>
+
+          <p>
+            The Brooklyn District Attorney's office is expected to present the case to a grand
+            jury in due course, pending the completion of the NYPD's investigation. Formal
+            charges against Bennett and Brooks had not been publicly filed as of Tuesday evening,
+            though sources indicated arraignment proceedings were anticipated within the standard
+            24-to-72-hour window following arrest. Both men are currently being held pending
+            those proceedings.
+          </p>
+
+          <p>
+            The NYPD has asked anyone with information related to the shooting to contact the
+            Crime Stoppers hotline at <strong>1-800-577-TIPS (8477)</strong>. Anonymous tips
+            may also be submitted online at nypdcrimestoppers.com or via text message to 274637
+            (CRIMES), followed by TIP577. The case remains open. Simons is survived by his
+            family, whose wishes for privacy are being respected during this difficult time.
+            <em>This story will continue to be updated as additional information becomes available.</em>
+          </p>
+
+        </div>
+        <!-- END ARTICLE BODY -->
+
+        <!-- Tags -->
+        <div class="article-tags">
+          <span class="tags-label">Topics:</span>
+          <span class="tag">Brooklyn</span>
+          <span class="tag">Coney Island</span>
+          <span class="tag">NYPD</span>
+          <span class="tag">Crime &amp; Justice</span>
+          <span class="tag">Gang Violence</span>
+          <span class="tag">Public Safety</span>
+          <span class="tag">Breaking News</span>
+        </div>
+
+      </article>
+      <!-- END ARTICLE -->
+
+      <!-- ═══════════════════════════════════════════════════════
+           SIDEBAR
+           ═══════════════════════════════════════════════════════ -->
+      <aside class="sidebar" aria-label="Sidebar">
+
+        <!-- Related Stories -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header red-bg">&#9679; Related Stories</div>
+
+          <div class="related-story">
+            <div class="related-thumb-placeholder">&#128240;</div>
+            <div>
+              <div class="related-story-title">NYPD Reports Surge in Brooklyn Shootings This Summer</div>
+              <div class="related-story-date">2 hours ago</div>
+            </div>
+          </div>
+
+          <div class="related-story">
+            <div class="related-thumb-placeholder">&#128240;</div>
+            <div>
+              <div class="related-story-title">Community Groups Demand Expanded Crisis Intervention Programs</div>
+              <div class="related-story-date">5 hours ago</div>
+            </div>
+          </div>
+
+          <div class="related-story">
+            <div class="related-thumb-placeholder">&#128240;</div>
+            <div>
+              <div class="related-story-title">Brooklyn DA Launches Task Force Targeting Gang Violence</div>
+              <div class="related-story-date">Yesterday</div>
+            </div>
+          </div>
+
+          <div class="related-story">
+            <div class="related-thumb-placeholder">&#128240;</div>
+            <div>
+              <div class="related-story-title">NYCHA Residents Call for More Security in Housing Developments</div>
+              <div class="related-story-date">2 days ago</div>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- Investigation Timeline -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header red-bg">&#9679; Investigation Timeline</div>
+          <div class="timeline-widget">
+            <div class="tl-item">
+              <div class="tl-time">2:36 PM</div>
+              <div class="tl-event">Surveillance cameras capture movement in courtyard area</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">2:40 PM</div>
+              <div class="tl-event">Multiple 911 calls reporting shots fired at Coney Island Houses</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">2:44 PM</div>
+              <div class="tl-event">NYPD 60th Precinct officers arrive on scene</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">2:51 PM</div>
+              <div class="tl-event">Victim transported to hospital via EMS</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">3:18 PM</div>
+              <div class="tl-event">Shamar Simons, 17, pronounced dead at hospital</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">4:30 PM</div>
+              <div class="tl-event">Brooklyn North Homicide Squad assumes jurisdiction</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">6:15 PM</div>
+              <div class="tl-event">Elijah Bennett ("Leeky Ashton") taken into custody</div>
+            </div>
+            <div class="tl-item">
+              <div class="tl-time">7:40 PM</div>
+              <div class="tl-event">Kareem Brooks ("Nunu Hound") apprehended by detectives</div>
+            </div>
+            <div class="tl-item tl-ongoing">
+              <div class="tl-time">Ongoing</div>
+              <div class="tl-event">Active investigation — NYPD Homicide &amp; Gang Division</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- NYC Crime Stats widget -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header">NYC Crime Snapshot — This Week</div>
+          <div class="stat-row">
+            <span class="stat-label">Shootings citywide</span>
+            <div>
+              <span class="stat-val">34</span>&nbsp;
+              <span class="stat-change up">+8%</span>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Brooklyn incidents</span>
+            <div>
+              <span class="stat-val">11</span>&nbsp;
+              <span class="stat-change up">+12%</span>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Arrests made</span>
+            <div>
+              <span class="stat-val">19</span>&nbsp;
+              <span class="stat-change dn">&#8593;</span>
+            </div>
+          </div>
+          <div class="stat-row">
+            <span class="stat-label">Tips received</span>
+            <div>
+              <span class="stat-val">142</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Newsletter signup -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header">Breaking News Alerts</div>
+          <div class="newsletter-widget">
+            <p>Get the latest NYC breaking news delivered directly to your inbox. Stay informed.</p>
+            <input type="email" placeholder="Enter your email address" aria-label="Email for newsletter" />
+            <button type="button">Subscribe Now</button>
+          </div>
+        </div>
+
+        <!-- Tip line -->
+        <div class="sidebar-section">
+          <div class="sidebar-section-header red-bg">&#128222; Submit a Tip</div>
+          <div class="newsletter-widget">
+            <p>
+              Have information about this story or another crime in NYC?
+              Contact the NYPD Crime Stoppers line:
+            </p>
+            <p style="font-size:1.15rem; font-weight:800; color:#c8102e; text-align:center; letter-spacing:0.05em;">
+              1-800-577-TIPS
+            </p>
+            <p style="font-size:0.75rem; text-align:center; margin-top:-8px;">
+              All tips are anonymous and may be eligible for a reward.
+            </p>
+          </div>
+        </div>
+
+      </aside>
+      <!-- END SIDEBAR -->
+
+    </div>
+  </main>
+
+  <!-- ── Footer ── -->
+  <footer>
+    <div class="footer-inner">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="footer-logo-text">NYC <span>Daily</span> Report</div>
+          <p>
+            Covering New York City's most important stories — crime, politics, community,
+            and culture — with accuracy and integrity since 2009.
+          </p>
+        </div>
+        <div class="footer-col">
+          <h5>Sections</h5>
+          <ul>
+            <li><a href="#">Breaking News</a></li>
+            <li><a href="#">Crime &amp; Justice</a></li>
+            <li><a href="#">Politics</a></li>
+            <li><a href="#">Community</a></li>
+            <li><a href="#">Business</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Boroughs</h5>
+          <ul>
+            <li><a href="#">Manhattan</a></li>
+            <li><a href="#">Brooklyn</a></li>
+            <li><a href="#">Queens</a></li>
+            <li><a href="#">The Bronx</a></li>
+            <li><a href="#">Staten Island</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h5>Company</h5>
+          <ul>
+            <li><a href="#">About Us</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">Advertise</a></li>
+            <li><a href="#">Privacy Policy</a></li>
+            <li><a href="#">Terms of Use</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; <span id="footerYear"></span> NYC Daily Report. All rights reserved.</span>
+        <span>New York, NY &nbsp;|&nbsp; news@nycdailyreport.com</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ── JavaScript ── -->
+  <script>
+    // ── Date/time display ──────────────────────────────────────
+    (function () {
+      const now = new Date();
+      const opts = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+      const longDate = now.toLocaleDateString('en-US', opts);
+      const shortDate = now.toLocaleDateString('en-US', { month: 'long', day: 'numeric', year: 'numeric' });
+
+      const topDateEl = document.getElementById('topDate');
+      if (topDateEl) topDateEl.textContent = longDate;
+
+      const articleDateEl = document.getElementById('articleDate');
+      if (articleDateEl) articleDateEl.textContent = shortDate;
+
+      const footerYearEl = document.getElementById('footerYear');
+      if (footerYearEl) footerYearEl.textContent = now.getFullYear();
+    })();
+
+    // ── Sticky breaking banner on scroll ──────────────────────
+    (function () {
+      const banner = document.getElementById('stickyBanner');
+      const threshold = 300;
+      let ticking = false;
+
+      window.addEventListener('scroll', function () {
+        if (!ticking) {
+          window.requestAnimationFrame(function () {
+            if (window.scrollY > threshold) {
+              banner.classList.add('visible');
+            } else {
+              banner.classList.remove('visible');
+            }
+            ticking = false;
+          });
+          ticking = true;
+        }
+      }, { passive: true });
+    })();
+
+    // ── Copy link to clipboard ─────────────────────────────────
+    function copyLink() {
+      const url = window.location.href;
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(url).then(function () {
+          showToast('Link copied to clipboard!');
+        }).catch(function () {
+          fallbackCopy(url);
+        });
+      } else {
+        fallbackCopy(url);
+      }
+    }
+
+    function fallbackCopy(text) {
+      const el = document.createElement('textarea');
+      el.value = text;
+      el.style.position = 'fixed';
+      el.style.opacity = '0';
+      document.body.appendChild(el);
+      el.select();
+      try {
+        document.execCommand('copy');
+        showToast('Link copied!');
+      } catch (e) {
+        showToast('Unable to copy link.');
+      }
+      document.body.removeChild(el);
+    }
+
+    // ── Toast notification ─────────────────────────────────────
+    function showToast(msg) {
+      let toast = document.getElementById('toast-msg');
+      if (!toast) {
+        toast = document.createElement('div');
+        toast.id = 'toast-msg';
+        toast.style.cssText = [
+          'position:fixed', 'bottom:28px', 'left:50%',
+          'transform:translateX(-50%) translateY(20px)',
+          'background:#111', 'color:#fff', 'font-size:0.85rem',
+          'font-weight:700', 'padding:10px 22px', 'border-radius:4px',
+          'box-shadow:0 4px 14px rgba(0,0,0,0.25)',
+          'opacity:0', 'transition:opacity 0.25s, transform 0.25s',
+          'pointer-events:none', 'z-index:9999'
+        ].join(';');
+        document.body.appendChild(toast);
+      }
+      toast.textContent = msg;
+      requestAnimationFrame(function () {
+        toast.style.opacity = '1';
+        toast.style.transform = 'translateX(-50%) translateY(0)';
+        setTimeout(function () {
+          toast.style.opacity = '0';
+          toast.style.transform = 'translateX(-50%) translateY(20px)';
+        }, 2600);
+      });
+    }
+
+    // ── Newsletter form feedback ───────────────────────────────
+    (function () {
+      const btn = document.querySelector('.newsletter-widget button');
+      const input = document.querySelector('.newsletter-widget input[type="email"]');
+      if (btn && input) {
+        btn.addEventListener('click', function () {
+          const val = input.value.trim();
+          const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!val || !emailRe.test(val)) {
+            showToast('Please enter a valid email address.');
+            input.focus();
+            return;
+          }
+          btn.textContent = 'Subscribed!';
+          btn.style.background = '#1a8a2e';
+          btn.disabled = true;
+          input.disabled = true;
+          showToast('You are now signed up for breaking news alerts.');
+        });
+      }
+    })();
+  </script>
+
+</body>
+</html>
